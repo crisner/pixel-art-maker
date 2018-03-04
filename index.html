@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pixel Art Maker</title>
+</head>
+<body class="wrapper">
+    <header><h1>Pixel art maker</h1></header>
+    <main>
+        <section>
+            <h3>Pick your art board size</h3>
+            <div>
+                <label for="rows">rows</label>
+                <input type="number" name="rows" id="rows" min="0" max="100" value="0">
+                <label for="columns">cols</label>
+                <input type="number" name="columns" id="columns" min="0" max="100" value="0">
+            </div>
+        </section>
+        <section>
+            <h3>Pick your color</h3>
+            <input type="color" name="color" id="color">
+            <button>Clear art board</button>
+        </section>
+        <div id="art-board">
+
+        </div><!-- artboard -->
+    </main>
+
+    <script type="text/javascript" src="js/design.js"></script>    
+</body>
+</html>
