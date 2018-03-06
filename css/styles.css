@@ -1,0 +1,69 @@
+body {
+    /* background: #424242; */
+    background: #355C7D;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.wrapper {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+header {
+    color: #FAFAFA;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+main {
+    padding: 2rem;
+    background-color: rgba(250,250,250 ,0.2);
+    border-radius: 2px;
+}
+
+h3,
+h4 {
+    margin: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-family: 'Oxygen Mono', monospace;
+}
+
+section:nth-of-type(2) > h3 {
+    margin: 2rem 0 1rem 0;
+}
+
+section > div {
+    margin: 1rem;
+    text-align: center;
+    background-color: #EFEBE9;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(158,158,158 ,0.2),
+                inset 0 0 8px rgba(158,158,158 ,0.1);
+    padding: 1rem;
+    border: 2px solid rgba(247, 246, 246, 0.1);
+    box-sizing: border-box;
+}
+
+aside {
+    float: left;
+    margin: 1rem 0;
+    padding: 2rem 0;
+    /* border: 1px solid red; */
+}
+
+aside > * {
+    display: block;
+    margin: 0.5rem 0;
+}
+
+.board {
+    background-color: #FAFAFA;
+    text-align: center;
+    margin: 4rem 5.5rem 2rem 5.5rem;
+    padding: 2rem 0;
+    /* border: 1px solid red; */
+}
+

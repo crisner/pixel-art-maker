@@ -5,29 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pixel Art Maker</title>
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500|Noto+Sans|Oxygen+Mono" rel="stylesheet">
+    <!-- Font awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
 </head>
-<body class="wrapper">
-    <header><h1>Pixel art maker</h1></header>
-    <main>
-        <section>
-            <h3>Pick your art board size</h3>
-            <div>
-                <label for="rows">Height</label>
-                <input type="number" name="rows" id="rows" min="0" max="100" value="0">
-                <label for="columns">Width</label>
-                <input type="number" name="columns" id="columns" min="0" max="100" value="0">
-            </div>
-        </section>
-        <section>
-            <h3>Pick your color</h3>
-            <input type="color" name="color" id="color">
-            <button id="clear">Clear art board</button>
-        </section>
-        <div id="art-board">
+<body>
+    <!-- Wrapper -->
+    <div class="wrapper">
+        <!-- Title heading -->
+        <header><h1>Pixel art maker</h1></header>
 
-        </div><!-- artboard -->
+        <!-- Workspace -->
+        <main>
+
+            <!-- Generate art board grid -->
+            <section>
+                <h3>Create your art board</h3>
+                <div>
+                    <label for="rows">Height</label>
+                    <input type="number" name="rows" id="rows" min="0" max="100" value="0">
+                    <label for="columns">Width</label>
+                    <input type="number" name="columns" id="columns" min="0" max="100" value="0">
+                    <button id="submit">Create</button>
+                </div>
+            </section>
+
+            <!-- Tool box -->
+            <aside>
+                    <h4>Tools</h4>
+                <!-- <div> -->
+                    <label for="color"></label>
+                    <input type="color" name="color" id="color">
+                    <button id="clear"><i class="far fa-window-close"></i></button>
+                    <button id="remove-color"><i class="fas fa-eraser"></i></button>
+                <!-- </div> -->
+            </aside>
+            <!-- <section>
+                <h3>Tools</h3>
+                <div>
+                    <label for="color">Pick color</label>
+                    <input type="color" name="color" id="color">
+                    <button id="clear">Clear art board</button>
+                </div>
+            </section> -->
+
+            <!-- Art board -->
+            <div id="art-board" class="board">
+
+            </div><!-- end of artboard -->
+        </div><!-- end of wrapper -->
     </main>
 
+    <!-- Scripts -->
     <script type="text/javascript" src="js/design.js"></script>    
 </body>
 </html>
