@@ -23,7 +23,7 @@
 
             <!-- Generate art board grid -->
             <section>
-                <h3>Create your art board</h3>
+                <h3>Create your art board:</h3>
                 <div>
                     <label for="rows">Height</label>
                     <input type="number" name="rows" id="rows" min="0" max="100" value="0">
@@ -35,22 +35,21 @@
 
             <!-- Tool box -->
             <aside>
-                    <h4>Tools</h4>
-                <!-- <div> -->
+                <h4>Tools</h4>
+                <div>
+                    <!-- <button id="brush"><i class="fas fa-paint-brush"></i></button> -->
+                    <button id="clear"><i class="fab fa-delicious"></i></button>
+                    <!-- <button id="remove-color"><i class="fas fa-eraser"></i></button> -->
                     <label for="color"></label>
                     <input type="color" name="color" id="color">
-                    <button id="clear"><i class="far fa-window-close"></i></button>
-                    <button id="remove-color"><i class="fas fa-eraser"></i></button>
-                <!-- </div> -->
-            </aside>
-            <!-- <section>
-                <h3>Tools</h3>
-                <div>
-                    <label for="color">Pick color</label>
-                    <input type="color" name="color" id="color">
-                    <button id="clear">Clear art board</button>
+                    <label for="brush"><i class="fas fa-paint-brush"></i></label>
+                    <input type="radio" name="toolbox" id="brush" value="brush" checked>
+                    <label for="remove-color"><i class="fas fa-eraser"></i></label>
+                    <input type="radio" name="toolbox" id="remove-color" value="eraser">
+                    <label for="fill"><img src="images\paint.png" alt="paint-bucket tool"></label>
+                    <input type="radio" name="toolbox" id="fill" value="fill">
                 </div>
-            </section> -->
+            </aside>
 
             <!-- Art board -->
             <div id="art-board" class="board">
@@ -58,6 +57,11 @@
             </div><!-- end of artboard -->
         </div><!-- end of wrapper -->
     </main>
+
+    <footer>
+            <div>Paint bucket made by <a href="https://www.flaticon.com/authors/webalys-freebies" title="Webalys Freebies">Webalys Freebies</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+    </footer>
 
     <!-- Scripts -->
     <script type="text/javascript" src="js/design.js"></script>    
