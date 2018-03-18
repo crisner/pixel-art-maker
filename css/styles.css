@@ -1,9 +1,10 @@
+/* Global */
 body {
-    /* background: #424242; */
     background: #355C7D;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-family: 'Noto Sans', sans-serif;
+    color: #373535;
 }
 
 .wrapper {
@@ -11,19 +12,27 @@ body {
     margin: 0 auto;
 }
 
+/* Header */
 header {
     color: #FAFAFA;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
 }
 
+/* Main */
 main {
-    padding: 2rem;
     background-color: rgba(250,250,250 ,0.2);
     border-radius: 2px;
 }
 
-h3,
+.board {
+    background-color: #FAFAFA;
+    text-align: center;
+    padding: 2rem;
+    min-height: 600px;
+    border-radius: 2px;
+}
+
 h4 {
     margin: 0;
     margin-bottom: 1rem;
@@ -31,43 +40,137 @@ h4 {
     font-family: 'Oxygen Mono', monospace;
 }
 
-section:nth-of-type(2) > h3 {
-    margin: 2rem 0 1rem 0;
-}
-
-section > div,
 aside {
-    margin: 1rem;
     text-align: center;
     background-color: #EFEBE9;
     border-radius: 2px;
     box-shadow: 0 1px 1px rgba(158,158,158 ,0.2),
                 inset 0 0 8px rgba(158,158,158 ,0.1);
-    padding: 1rem;
     border: 2px solid rgba(247, 246, 246, 0.1);
     box-sizing: border-box;
 }
 
-aside {
+aside.toolbox {
+    position: absolute;
+    left: 4rem;
     float: left;
-    margin: 1rem 0;
-    padding: 2rem 0;
-    /* border: 1px solid red; */
+    margin: 2rem 0;
+    padding: 1rem 0.5rem;
 }
 
 aside > div > * {
     display: block;
-    margin: 0.5rem 0;
 }
 
-.board {
-    background-color: #FAFAFA;
+input#rows[type="number"],
+input#columns[type="number"],
+button.btn-submit {
+    margin: 0 0 0 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    min-width: 8rem;
+    height: 1.8rem;
+    border-radius: 0.2rem;
+    border: 2px solid #f6f5f4;
+    text-transform: uppercase;
+    box-shadow: 0 -1px 2px #f2eeec,
+                0 0 2px #dad5d2,
+                inset 0 -1px 2px 2px rgba(216, 212, 212, 0.89);
+    color: #545556;
+    cursor: pointer;
+    background-color: #e4e0de;
+    box-sizing: border-box;
+}
+
+input#rows[type="number"],
+input#columns[type="number"] {
+    margin: 0;
+    padding: 0 0 0 0.4rem;
+    min-width: 1rem;
+    height: 1.6rem;
+    cursor: auto;
+}
+
+.toggle {
+    margin: 1.5rem 0;
+    padding: 0;
+}
+
+label:nth-child(2) + .toggle {
+    margin: 0.85rem 0;
+}
+.toggle-input {
+    display: none;
+}
+
+.tool-btn,
+.tool-btn-color,
+.toggle-button {
+    border: solid 1px #e7e6e6;
+    padding: 0.6rem 0.8rem;
+    background-color: #f2eeec;
+    box-shadow: inset 0 0 2px 2px #f4f1ef;
+    transition: all 0.2s ease;
+}
+
+.tool-btn:active,
+.tool-btn-color:active,
+.toggle-input:checked + .toggle-button {
+    background-color: #efebe9;
+    border: solid 1px #d9d7d6;
+    box-shadow: inset 0 0 6px 2px rgba(200, 199, 198, 0.52);
+}
+
+.tool-btn {
+    display: inline-block;
+    width: 2.8rem;
+    height: 2.8rem;
+    margin: 0.1rem 0;
+}
+
+.tool-btn-color {
+    width: 1rem;
+    height: 1.3rem;
+}
+
+.tool-btn:active,
+.tool-btn:focus,
+.tool-btn-color:active,
+.tool-btn-color:focus {
+    outline: none;
+}
+
+/* .download {
+    position: absolute;
+    bottom: 6.4rem;
+    left: 3.45rem;
+}
+
+.download > button.btn-submit {
+    min-width: 4.36rem;
+} */
+
+/* Global buttons */
+button.btn-submit {
+    border: 2px solid rgba(165, 163, 162, 0.49);
+    box-shadow: 0 -1px 2px #f2eeec,
+                0 0 2px #dad5d2,
+                inset 1px -4px 6px 2px rgba(135, 131, 131, 0.22);
+    color: #fafafa;
+    background-color: #cccac9;
+}
+
+/* Footer */
+footer {
     text-align: center;
-    margin: 4rem 5.5rem 2rem 5.5rem;
-    padding: 2rem 0;
-    height: 600px;
-    border-radius: 2px;
-    /* border: 1px solid red; */
 }
 
+footer > div {
+    bottom: 4em;
+    font-size: 0.6em;
+    color: #424242;
+}
 
+footer > div a {
+    color: #424242;
+}

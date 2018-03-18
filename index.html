@@ -22,34 +22,47 @@
         <main>
 
             <!-- Generate art board grid -->
-            <section>
-                <h3>Create your art board:</h3>
-                <div>
-                    <label for="rows">Height</label>
-                    <input type="number" name="rows" id="rows" min="0" max="100" value="0">
-                    <label for="columns">Width</label>
-                    <input type="number" name="columns" id="columns" min="0" max="100" value="0">
-                    <button id="submit">Create</button>
-                </div>
-            </section>
+            <aside>
+                <p>
+                    <!-- <strong>Create your art board:</strong> -->
+                    <label for="rows">Enter height:</label>
+                    <input type="number" name="rows" id="rows" min="0" max="50" value="0">
+                    <label for="columns">Enter width:</label>
+                    <input type="number" name="columns" id="columns" min="0" max="50" value="0">
+                    <button id="submit" class="btn-submit">Create artboard</button>
+                </p>
+            </aside>
 
             <!-- Tool box -->
-            <aside>
+            <aside class="toolbox">
                 <h4>Tools</h4>
                 <div>
-                    <!-- <button id="brush"><i class="fas fa-paint-brush"></i></button> -->
-                    <button id="clear"><i class="fab fa-delicious"></i></button>
-                    <!-- <button id="remove-color"><i class="fas fa-eraser"></i></button> -->
-                    <label for="color"></label>
-                    <input type="color" name="color" id="color">
-                    <label for="brush"><i class="fas fa-paint-brush"></i></label>
-                    <input type="radio" name="toolbox" id="brush" value="brush" checked>
-                    <label for="remove-color"><i class="fas fa-eraser"></i></label>
-                    <input type="radio" name="toolbox" id="remove-color" value="eraser">
-                    <label for="fill"><img src="images\paint.png" alt="paint-bucket tool"></label>
-                    <input type="radio" name="toolbox" id="fill" value="fill">
+                    <button id="clear" class="tool-btn"><i class="fab fa-delicious"></i></button>
+                    <label for="color">
+                    <input type="color" name="color" id="color" class="tool-btn-color">
+                    </label>
+                    <label for="brush" class="toggle">
+                    <input type="radio" name="toolbox" id="brush" class="toggle-input" value="brush" checked>
+                    <span class="toggle-button"><i class="fas fa-paint-brush"></i></span>
+                    </label>
+                    <label for="remove-color" class="toggle">
+                    <input type="radio" name="toolbox" id="remove-color" class="toggle-input" value="eraser">
+                    <span class="toggle-button"><i class="fas fa-eraser"></i></span>
+                    </label>
+                    <label for="fill" class="toggle">
+                    <input type="radio" name="toolbox" id="fill" class="toggle-input" value="fill">
+                    <span class="toggle-button">
+                        <svg class="svg-inline--fa fa-w-16" aria-hidden="true" data-prefix="fas" data-icon="bucket" role="img" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve" data-fa-i2svg>
+                            <path d="M430.043,276.273c1.676-4.093,0.74-8.751-2.351-11.886L231.769,68.464c-2.133-2.09-4.92-3.157-7.706-3.157V54.423    C224.063,24.403,199.659,0,169.639,0s-54.423,24.403-54.423,54.423v115.225l-83.899,83.877c-21.225,21.247-21.225,55.773,0,76.976    l101.706,101.706c10.297,10.297,23.946,15.935,38.488,15.935s28.191-5.66,38.488-15.935L359.184,283h60.801    C424.383,283,428.367,280.344,430.043,276.273z M202.293,82.571l-65.308,65.308V54.423c0-18.025,14.651-32.654,32.654-32.654    s32.654,14.629,32.654,32.654C202.293,54.423,202.293,82.571,202.293,82.571z M451.072,331.763    c-3.962-6.509-14.672-6.509-18.613,0c-5.725,9.448-56.012,93.194-56.012,125.391c0,36.006,29.301,65.308,65.308,65.308    s65.308-29.301,65.308-65.308C507.063,424.957,456.797,341.211,451.072,331.763z"></path>
+                        </svg>
+                    </span>
+                    </label>
                 </div>
             </aside>
+            <!-- Feature to implement later -->
+            <!-- <div class="download">
+                    <button id="save" class="btn-submit">Save</button>
+            </div> -->
 
             <!-- Art board -->
             <div id="art-board" class="board">
@@ -59,11 +72,12 @@
     </main>
 
     <footer>
-            <div>Paint bucket made by <a href="https://www.flaticon.com/authors/webalys-freebies" title="Webalys Freebies">Webalys Freebies</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+        <h6>Made with <i class="fas fa-music"></i> by Renisha Christie A</h6>
+        <div>Paint bucket icon made by <a href="https://www.flaticon.com/authors/webalys-freebies" title="Webalys Freebies">Webalys Freebies</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
     </footer>
 
     <!-- Scripts -->
-    <script type="text/javascript" src="js/design.js"></script>    
+    <script type="text/javascript" src="js/design.js"></script>
 </body>
 </html>

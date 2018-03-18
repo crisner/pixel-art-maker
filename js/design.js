@@ -1,5 +1,5 @@
 // Set variables
-let canvas = document.getElementById('art-board');
+let artboard = document.getElementById('art-board');
 let createArtBoard = document.getElementById('submit');
 let rows = document.getElementById('rows');
 let columns = document.getElementById('columns');
@@ -8,6 +8,7 @@ let brush = document.getElementById('brush');
 let clear = document.getElementById('clear');
 let eraser = document.getElementById('remove-color');
 let bucket = document.getElementById('fill');
+let save = document.getElementById('save');
 // TODO: Set r and c to 0 as initial values
 let r = 0;
 let c = 0;
@@ -43,7 +44,7 @@ bucket.addEventListener('click', function() {
     * @listens click listens to a click on the artboard
     * @fires fillArtBoard - The callback that handles the event to do
     */
-    canvas.addEventListener('click', fillArtBoard);
+    artboard.addEventListener('click', fillArtBoard);
 });
 
 // TODO: Check if brush element is checked
@@ -72,12 +73,8 @@ brush.addEventListener('click', clickAndDrag(paint));
 */
 eraser.addEventListener('click', clickAndDrag(erase));
 
-function clicked(e) {
-    console.log(e);
-}
-
 /**
-* @description Action to be performed on click and drag on canvas area
+* @description Action to be performed on click and drag on artboard area
 * @callback clickAndDrag
 * @param {callback} func1 - placeholder for callback function paint or erase
 */
@@ -86,7 +83,7 @@ function clickAndDrag(func1) {
     * @listens click
     * @param {event} e 
     */
-    canvas.addEventListener('click', function(e) {
+    artboard.addEventListener('click', function(e) {
         // TODO: Apply callback if class name and action match
         if (e.target.className === 'pixel' && action === null) {
             func1(e);
@@ -95,7 +92,7 @@ function clickAndDrag(func1) {
     /**
     * @listens mousedown
     */
-    canvas.addEventListener('mousedown', function() {
+    artboard.addEventListener('mousedown', function() {
         // TODO: Set action to click
         action = 'click';
     }, false);
@@ -103,7 +100,7 @@ function clickAndDrag(func1) {
     * @listens mousemove
     * @param {event} e
     */
-    canvas.addEventListener('mousemove', function(e) {
+    artboard.addEventListener('mousemove', function(e) {
         // TODO: Check if action is set to click
         if (action === 'click') {
             // TODO: Set action to drag
@@ -117,7 +114,7 @@ function clickAndDrag(func1) {
     /**
     * @listens mouseup
     */
-    canvas.addEventListener('mouseup', function() {
+    artboard.addEventListener('mouseup', function() {
         // TODO: Check if class name and action match
         if (action === 'drag' || action === 'click') {
             // TODO: Set action back to null
@@ -188,15 +185,15 @@ function makeGrid() {
         alert("Please enter a number between 1 and 50");
     } else {
         // TODO: Set/create elements
-        canvas.innerHTML = "";
+        artboard.innerHTML = "";
         let eachRow = document.createElement('div');
         let pixel = document.createElement('span');
-        let size = Math.ceil(650/columns.valueAsNumber) - 2;
+        let size = Math.ceil(500/columns.valueAsNumber);
         
         for (let i = 0; i < r; i++) {
             // TODO: Create rows
             row = document.createElement('div');
-            canvas.appendChild(row);
+            artboard.appendChild(row);
             row.style.height = size +'px';
             row.style.boxSizing = 'border-box';
             row.style.margin = '0 0 1px 0';
