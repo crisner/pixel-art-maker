@@ -15,12 +15,6 @@ let c = 0;
 // TODO: Set action to null
 let action = null;
 
-// rows.addEventListener('change', function () {
-//     if (rows.value < 1 || rows.value > 50) {
-//         alert("Please enter a number between 1 and 50");
-//     }
-// });
-
 /**
 * @description Create art board
 * @listens click
