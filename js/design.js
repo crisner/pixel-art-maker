@@ -1,14 +1,14 @@
 // Set variables
-let artboard = document.getElementById('art-board');
-let createArtBoard = document.getElementById('submit');
-let rows = document.getElementById('rows');
-let columns = document.getElementById('columns');
-let color = document.getElementById('color');
-let brush = document.getElementById('brush');
-let clear = document.getElementById('clear');
-let eraser = document.getElementById('remove-color');
-let bucket = document.getElementById('fill');
-let save = document.getElementById('save');
+let artboard = $('#art-board');
+let createArtBoard = $('#submit');
+let rows = $('#rows');
+let columns = $('#columns');
+let color = $('#color');
+let brush = $('#brush');
+let clear = $('#clear');
+let eraser = $('#remove-color');
+let bucket = $('#fill');
+
 // TODO: Set r and c to 0 as initial values
 let r = 0;
 let c = 0;
@@ -16,29 +16,30 @@ let c = 0;
 let action = null;
 
 /**
-* @description Create art board
+* @description Create art board grid
 * @listens click
 * @fires makeGrid - The callback that handles the event to do
 */
-createArtBoard.addEventListener('click', makeGrid);
+// createArtBoard.addEventListener('click', makeGrid);
+createArtBoard.click(makeGrid);
 
 /**
 * @description Clears art board
 * @listens click
 * @fires clearArtBoard - The callback that handles the event to do
 */
-clear.addEventListener('click', clearArtBoard);
+clear.click(clearArtBoard);
 
 /**
 * @description Fills art board
 * @listens click
 */
-bucket.addEventListener('click', function() {
+bucket.click(function() {
     /**
     * @listens click listens to a click on the artboard
     * @fires fillArtBoard - The callback that handles the event to do
     */
-    artboard.addEventListener('click', fillArtBoard);
+    artboard.click(fillArtBoard);
 });
 
 // TODO: Check if brush element is checked
@@ -57,7 +58,7 @@ if (brush.checked) {
 * @fires clickAndDrag
 * @param {callback} paint - The callback to paint
 */
-brush.addEventListener('click', clickAndDrag(paint));
+brush.click(clickAndDrag(paint));
 
 /**
 * @description Removes color from cells using click and drag
@@ -65,7 +66,7 @@ brush.addEventListener('click', clickAndDrag(paint));
 * @fires clickAndDrag
 * @param {callback} erase - The callback to erase
 */
-eraser.addEventListener('click', clickAndDrag(erase));
+eraser.click(clickAndDrag(erase));
 
 /**
 * @description Action to be performed on click and drag on artboard area
@@ -77,7 +78,7 @@ function clickAndDrag(func1) {
     * @listens click
     * @param {event} e 
     */
-    artboard.addEventListener('click', function(e) {
+    artboard.on('click', function(e) {
         // TODO: Apply callback if class name and action match
         if (e.target.className === 'pixel' && action === null) {
             func1(e);
@@ -86,7 +87,7 @@ function clickAndDrag(func1) {
     /**
     * @listens mousedown
     */
-    artboard.addEventListener('mousedown', function() {
+    artboard.on('mousedown', function() {
         // TODO: Set action to click
         action = 'click';
     }, false);
@@ -94,7 +95,7 @@ function clickAndDrag(func1) {
     * @listens mousemove
     * @param {event} e
     */
-    artboard.addEventListener('mousemove', function(e) {
+    artboard.on('mousemove', function(e) {
         // TODO: Check if action is set to click
         if (action === 'click') {
             // TODO: Set action to drag
@@ -108,7 +109,7 @@ function clickAndDrag(func1) {
     /**
     * @listens mouseup
     */
-    artboard.addEventListener('mouseup', function() {
+    artboard.on('mouseup', function() {
         // TODO: Check if class name and action match
         if (action === 'drag' || action === 'click') {
             // TODO: Set action back to null
@@ -172,37 +173,28 @@ function clearArtBoard() {
 */
 function makeGrid() {
     // TODO: Set values from input to r and c
-    r = rows.valueAsNumber;
-    c = columns.valueAsNumber;
+    r = rows[0].valueAsNumber;
+    c = columns[0].valueAsNumber;
     // TODO: Validate values for r and c
     if (r < 1 || r > 50 || c < 1 || c > 50) {
         alert("Please enter a number between 1 and 50");
     } else {
         // TODO: Set/create elements
-        artboard.innerHTML = "";
-        let eachRow = document.createElement('div');
-        let pixel = document.createElement('span');
-        let size = Math.ceil(500/columns.valueAsNumber);
+        artboard.html('');
+        let size = Math.ceil(500/columns[0].valueAsNumber) + 'px';
         
         for (let i = 0; i < r; i++) {
             // TODO: Create rows
-            row = document.createElement('div');
-            artboard.appendChild(row);
-            row.style.height = size +'px';
-            row.style.boxSizing = 'border-box';
-            row.style.margin = '0 0 1px 0';
+            let row = $('<div></div>');
+            row.appendTo(artboard);
+            row.css({'box-sizing': 'border-box', 'margin': '0 0 1px 0', 'height': size});
             for (let j = 0; j < c; j++) {
                 // TODO: Create column elements
-                pixel = document.createElement('span');
-                row.appendChild(pixel);
-                row.style.boxSizing = 'border-box';
-                pixel.style.display = 'inline-block';
-                pixel.className = 'pixel';
-                pixel.style.height = size +'px';
-                pixel.style.width = size +'px';
-                pixel.style.margin = '0 -1px 0 0';
-                pixel.style.border = '1px solid rgba(189, 189, 189,1.0)';
-                pixel.style.background = 'transparent';
+                let pixel = $('<span></span>');
+                row.append(pixel);
+                row.css('box-sizing', 'border-box');
+                pixel.addClass('pixel');
+                pixel.css({'display': 'inline-block', 'margin': '0 -1px 0 0', 'border': '1px solid rgba(189, 189, 189,1.0)', 'background': 'transparent', 'height': size, 'width': size});
             }
         }
     }
