@@ -43,7 +43,7 @@ bucket.click(function() {
 });
 
 // TODO: Check if brush element is checked
-if (brush.checked) {
+if (brush.prop('checked')) {
     /**
     * @description Call function clickAndDrag
     * @param {callback} paint - The callback function to paint
@@ -87,15 +87,15 @@ function clickAndDrag(func1) {
     /**
     * @listens mousedown
     */
-    artboard.on('mousedown', function() {
+    artboard.mousedown(function() {
         // TODO: Set action to click
         action = 'click';
-    }, false);
+    });
     /**
     * @listens mousemove
     * @param {event} e
     */
-    artboard.on('mousemove', function(e) {
+    artboard.mousemove(function(e) {
         // TODO: Check if action is set to click
         if (action === 'click') {
             // TODO: Set action to drag
@@ -105,17 +105,17 @@ function clickAndDrag(func1) {
         if (e.target.className === 'pixel' && action === 'drag') {
             func1(e);
         }
-    }, false);
+    });
     /**
     * @listens mouseup
     */
-    artboard.on('mouseup', function() {
+    artboard.mouseup(function() {
         // TODO: Check if class name and action match
         if (action === 'drag' || action === 'click') {
             // TODO: Set action back to null
             action = null;
         }
-    }, false);
+    });
 }
 
 /**
@@ -125,8 +125,8 @@ function clickAndDrag(func1) {
 */
 function paint(e) {
     // TODO: If brush is checked apply color
-    if (brush.checked) {
-        e.target.style.background = color.value;
+    if (brush.prop('checked')) {
+        $(e.target).css('background', color.val());
     }
 }
 
@@ -137,8 +137,8 @@ function paint(e) {
 */
 function erase(e) {
     // TODO: If eraser is checked set color to transparent
-    if (eraser.checked) {
-        e.target.style.background = 'transparent';
+    if (eraser.prop('checked')) {
+        $(e.target).css('background', 'transparent');
     }
 }
 
@@ -146,13 +146,10 @@ function erase(e) {
 * @description Fills entire artboard with selected color
 */
 function fillArtBoard() {
-    let pixelClass = document.getElementsByClassName('pixel');
-    let length = pixelClass.length;
+    let pixelClass = $('.pixel');
     // TODO: If brush is checked and action is set to null, apply color value
-    if (bucket.checked && action === null) {
-        for (let i = 0; i < length; i++) {
-            pixelClass[i].style.background = color.value;
-        }
+    if (bucket.prop('checked') && action === null) {
+        pixelClass.css('background', color.val());
     }
 }
 
@@ -160,12 +157,8 @@ function fillArtBoard() {
 * @description Clears artboard
 */
 function clearArtBoard() {
-    let pixelClass = document.getElementsByClassName('pixel');
-    let length = pixelClass.length;
-    for (let i = 0; i < length; i++) {
-        // TODO: Set color to transparent
-        pixelClass[i].style.background = 'transparent';
-    }
+    let pixelClass = $('.pixel');
+    pixelClass.css('background', 'transparent');
 }
 
 /**
