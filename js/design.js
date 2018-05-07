@@ -21,7 +21,10 @@ let action = null;
 * @fires makeGrid - The callback that handles the event to do
 */
 // createArtBoard.addEventListener('click', makeGrid);
-createArtBoard.click(makeGrid);
+createArtBoard.click(function(e) {
+    makeGrid();
+    e.preventDefault();
+});
 
 /**
 * @description Clears art board
@@ -174,20 +177,22 @@ function makeGrid() {
     } else {
         // TODO: Set/create elements
         artboard.html('');
-        let size = Math.ceil(500/columns[0].valueAsNumber) + 'px';
+        let size = Math.floor(100/c) + '%';
         
+        let grid = $('<table></table>');
+        grid.appendTo(artboard);
+        grid.css({'margin': '0 auto', 'border-collapse': 'collapse', 'border-spacing': '0', 'width': '100%'});
         for (let i = 0; i < r; i++) {
             // TODO: Create rows
-            let row = $('<div></div>');
-            row.appendTo(artboard);
-            row.css({'box-sizing': 'border-box', 'margin': '0 0 1px 0', 'height': size});
+            let row = $('<tr></tr>');
+            row.appendTo(grid);
+            row.css('width', '100%');
             for (let j = 0; j < c; j++) {
                 // TODO: Create column elements
-                let pixel = $('<span></span>');
+                let pixel = $('<td></td>');
                 row.append(pixel);
-                row.css('box-sizing', 'border-box');
                 pixel.addClass('pixel');
-                pixel.css({'display': 'inline-block', 'margin': '0 -1px 0 0', 'border': '1px solid rgba(189, 189, 189,1.0)', 'background': 'transparent', 'height': size, 'width': size});
+                pixel.css({'border': '1px solid rgba(189, 189, 189,1.0)', 'background': 'transparent', 'width': size, 'padding-top': size, 'box-sizing': 'border-box'});
             }
         }
     }

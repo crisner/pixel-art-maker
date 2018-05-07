@@ -28,7 +28,7 @@ main {
 .board {
     background-color: #FAFAFA;
     text-align: center;
-    padding: 2rem;
+    padding: 4rem;
     min-height: 600px;
     border-radius: 2px;
 }
@@ -196,3 +196,58 @@ footer > div a {
 footer svg {
     padding: 0 0.1em;
 }
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 1024px) {
+    
+    h4,
+    aside > div,
+    aside > div > * {
+        display: inline;
+    }
+
+    h4::after {
+        content: ":";
+        margin-right: 1rem;
+    }
+  
+    aside.toolbox {
+        position: static;
+        width: 100%;
+        left: 0;
+        float: none;
+        margin: 0.4rem auto;
+        padding: 0.8rem;
+    }
+  }
+
+  @media only screen and (max-width: 767px) {
+
+    .board {
+        padding: 0;
+        min-height: auto;
+    }
+    
+    aside > div,
+    aside > div > * {
+        display: inline;
+    }
+
+    h4 {
+        display: none;
+    }
+
+    h4::after {
+        content: "";
+        margin-right: 0;
+    }
+  
+    aside.toolbox {
+        margin: 0.4rem auto;
+    }
+
+    /* Global buttons */
+    button.btn-submit {
+        margin: 1rem 0 0;
+    }
+  }
