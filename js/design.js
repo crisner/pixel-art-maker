@@ -173,7 +173,7 @@ function makeGrid() {
     // TODO: Set values from input to r and c
     r = rows[0].valueAsNumber;
     c = columns[0].valueAsNumber;
-    size = Math.floor(artboard.innerWidth()/c);
+    size = (100/c)/1.1 + '%';
     // TODO: Validate values for r and c
     if (r < 1 || r > 50 || c < 1 || c > 50) {
         alert("Please enter a number between 1 and 50");
@@ -187,13 +187,13 @@ function makeGrid() {
             // TODO: Create rows
             let row = $('<tr></tr>');
             row.appendTo(grid);
-            // row.css('width', '100%');
+            let cell = $('td');
             for (let j = 0; j < c; j++) {
                 // TODO: Create column elements
                 let pixel = $('<td></td>');
                 row.append(pixel);
                 pixel.addClass('pixel');
-                pixel.css({'border': '1px solid rgba(189, 189, 189,1.0)', 'border-image-width': '0', 'background': 'transparent', 'width': size, 'height': size, 'margin': '0', 'padding': '0', 'box-sizing': 'border-box'});
+                pixel.css({'border': '1px solid rgba(189, 189, 189,1.0)',  'background': 'transparent', 'box-sizing': 'border-box',  'padding-top': size });
             }
         }
     }
